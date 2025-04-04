@@ -31,8 +31,8 @@ async def get_patient_by_identifier(system: str, value: str):
         return patient # Return patient
     elif status=='notFound':
         raise HTTPException(status_code=204, detail="Patient not found")
-else:
-    raise HTTPException(status_code-500, detail=f"Internal error. (status)")
+    else:
+        raise HTTPException(status_code-500, detail=f"Internal error. (status)")
 
 @app.post("/patient", response_model=dict)
 async def add_patient(request: Request):
