@@ -28,13 +28,13 @@ def WritePatient(patient_dict: dict):
     else:
         return "errorInserting", None
 
-def GetPatientByIdentifier(PatientSystem,PatientValue):
+def GetPatientByIdentifier(patientSystem,patientValue):
     try:
-        patient=collection.find_one({"identifier.system":PatientSystem,"identifier.value":PatientValue})
-        print("Patient retornado:",patient)
+        patient = collection.find_one({"identifier.system":patientSystem,"identifier.value":patientValue})
+        print("Patient Retornado:",patient)
         if patient:
-            patient["_id"] - str(patient["_id"])
-            return "succes", patient
-        return"NotFound",None
+            patient["_id"] = str(patient["_id"])
+            return "success", patient
+        return "notFound", None
     except Exception as e:
-        return f"error encontrado:{str(e)}",None
+        return f"error encontrado: {str(e)}", None
